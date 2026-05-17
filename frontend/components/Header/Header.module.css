@@ -178,6 +178,7 @@
   text-align: left;
   padding: 6px 10px;
   cursor: pointer;
+  color: var(--foreground);
 }
 
 .cityItem:hover {
