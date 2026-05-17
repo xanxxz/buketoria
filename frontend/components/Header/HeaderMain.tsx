@@ -31,7 +31,7 @@ export const HeaderMain = () => {
   const isCitySelected = !!city;
 
   const fetchCities = async () => {
-    const res = await fetch('http://localhost:4000/cities');
+    const res = await fetch('http://localhost:4000/api/cities');
     return res.json();
   };
 
