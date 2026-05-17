@@ -92,7 +92,7 @@ export default function HomePage() {
 
             name: 'Букетория',
 
-            url: 'https://your-domain.ru',
+            url: 'https://букетория.рф',
 
             areaServed: 'Россия',
 
@@ -101,7 +101,7 @@ export default function HomePage() {
 
             potentialAction: {
               '@type': 'OrderAction',
-              target: 'https://your-domain.ru/catalog',
+              target: 'https://букетория.рф/catalog',
             },
           }),
         }}
