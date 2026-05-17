@@ -1,8 +1,6 @@
 import { CreateOrderDTO } from '@/types/order';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;;
-
-const BASE_URL = `${API_URL}/orders`;
+const BASE_URL = `/api/orders`;
 
 export async function createOrder(data: CreateOrderDTO) {
   const res = await fetch(BASE_URL, {

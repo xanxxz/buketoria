@@ -1,7 +1,7 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
 const login = async () => {
-  const res = await fetch(`${API_URL}/auth/login`, {
+  const res = await fetch(`/api/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
