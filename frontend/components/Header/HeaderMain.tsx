@@ -46,11 +46,9 @@ export const HeaderMain = () => {
       }
     };
 
-    document.addEventListener('pointerdown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('pointerdown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   // 🌍 геолокация
@@ -84,10 +82,11 @@ export const HeaderMain = () => {
       .catch((e) => console.log('CITIES ERROR:', e));
   }, []);
 
-  const openCitySelect = () => {
+  const openCitySelect = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setOpen(v => !v);
   };
-
+  
   const router = useRouter();
 
   const selectCity = (c: City) => {
@@ -121,7 +120,13 @@ export const HeaderMain = () => {
 
       {/* CITY */}
       <div className={styles.cityWrapper} ref={wrapperRef}>
-        <button className={styles.city} onClick={openCitySelect}>
+        <button  
+          className={styles.city}   
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(v => !v);
+          }}
+        >
           <FiMapPin className={styles.iconMain} />
           <span className={styles.cityText}>{isCitySelected ? city.name : 'Выберите город'}</span>
           <FiChevronDown className={styles.iconSmall} />
@@ -138,9 +143,6 @@ export const HeaderMain = () => {
                 {c.name}
               </button>
             ))}
-              <div style={{ position: 'fixed', bottom: 0, left: 0, background: 'white', zIndex: 99999, fontSize: 10 }}>
-                {JSON.stringify(cities)}
-              </div>
           </div>
         )}
       </div>
