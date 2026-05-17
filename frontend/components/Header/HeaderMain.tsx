@@ -3,39 +3,38 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { FiMapPin, FiChevronDown, FiUser } from 'react-icons/fi';
+import { FiMapPin, FiChevronDown } from 'react-icons/fi';
 import styles from './Header.module.css';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
-import { getCities } from '@/lib/api/cities';
 
-export const HeaderMain = () => {
-  type City = {
-    id: string;
-    name: string;
-    slug: string;
-  };
+type City = {
+  id: string;
+  name: string;
+  slug: string;
+};
 
+export const HeaderMain = ({ cities }: { cities: City[] }) => {
   const [city, setCity] = useState<City | null>(null);
-  const [cities, setCities] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
   const params = useParams();
   const cityLinkRaw = params?.city;
+
   const cityLink =
     typeof cityLinkRaw === 'string'
       ? cityLinkRaw
       : Array.isArray(cityLinkRaw)
       ? cityLinkRaw[0]
       : undefined;
+
   const prefix = city?.slug ? `/${city.slug}` : '';
   const isCitySelected = !!city;
 
-  const fetchCities = async () => {
-    const res = await getCities();
-    return res;
-  };
-
+  // 🔥 закрытие по клику вне
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -48,64 +47,38 @@ export const HeaderMain = () => {
 
     document.addEventListener('mousedown', handleClickOutside);
 
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () =>
+      document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // 🌍 геолокация
+  // 🌍 установка города из URL
   useEffect(() => {
-    if (!cityLink) {
-      setCity(null);
-      return;
+    if (!cityLink || !cities?.length) return;
+
+    const found = cities.find((c) => c.slug === cityLink);
+
+    if (found) {
+      setCity(found);
+    } else {
+      setCity({
+        id: '',
+        name: cityLink,
+        slug: cityLink,
+      });
     }
-
-    fetchCities().then((cities: City[]) => {
-      const found = cities.find((c) => c.slug === cityLink);
-
-      if (found) {
-        setCity(found); // ✅ норм name
-      } else {
-        setCity({
-          id: '',
-          name: cityLink, // fallback
-          slug: cityLink,
-        });
-      }
-    });
-  }, [cityLink]);
-
-  useEffect(() => {
-    getCities()
-      .then((data) => {
-        console.log('CITIES RESPONSE:', data);
-        setCities(data);
-      })
-      .catch((e) => console.log('CITIES ERROR:', e));
-  }, []);
-
-  const openCitySelect = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setOpen(v => !v);
-  };
-  
-  const router = useRouter();
+  }, [cityLink, cities]);
 
   const selectCity = (c: City) => {
     setCity(c);
-
-    // сохраняем slug + name
     localStorage.setItem('city', JSON.stringify(c));
-
     setOpen(false);
-
-    // 🔥 ГЛАВНОЕ — переход
     router.push(`/${c.slug}`);
   };
 
   return (
     <div className={styles.main}>
-      
       {/* LOGO */}
-      <Link href={`${prefix}/`} className={styles.logo}>
+      <Link href={prefix || '/'} className={styles.logo}>
         <div className={styles.logoBox}>
           <Image
             src="/img/logo.png"
@@ -120,15 +93,14 @@ export const HeaderMain = () => {
 
       {/* CITY */}
       <div className={styles.cityWrapper} ref={wrapperRef}>
-        <button  
-          className={styles.city}   
-          onClick={(e) => {
-            e.stopPropagation();
-            setOpen(v => !v);
-          }}
+        <button
+          className={styles.city}
+          onClick={() => setOpen((v) => !v)}
         >
           <FiMapPin className={styles.iconMain} />
-          <span className={styles.cityText}>{isCitySelected ? city.name : 'Выберите город'}</span>
+          <span className={styles.cityText}>
+            {isCitySelected ? city.name : 'Выберите город'}
+          </span>
           <FiChevronDown className={styles.iconSmall} />
         </button>
 

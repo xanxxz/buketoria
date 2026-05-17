@@ -1,16 +1,17 @@
-import styles from './Header.module.css';
-import { HeaderBottom } from './HeaderBottom';
-import { HeaderMain } from './HeaderMain';
-import { TopBanner } from './TopBanner';
 import { getCachedCategories } from '@/lib/cache/categoriesCache';
+import { HeaderMain } from './HeaderMain';
+import { HeaderBottom } from './HeaderBottom';
+import { TopBanner } from './TopBanner';
+import { getCities } from '@/lib/api/cities';
 
 export const Header = async () => {
   const categories = await getCachedCategories();
+  const cities = await getCities();
 
   return (
-    <header className={styles.header}>
+    <header>
       <TopBanner />
-      <HeaderMain />
+      <HeaderMain cities={cities} />
       <HeaderBottom categories={categories} />
     </header>
   );
