@@ -7,6 +7,7 @@ import { FiMapPin, FiChevronDown, FiUser } from 'react-icons/fi';
 import styles from './Header.module.css';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
+import { getCities } from '@/lib/api/cities';
 
 export const HeaderMain = () => {
   type City = {
@@ -31,8 +32,8 @@ export const HeaderMain = () => {
   const isCitySelected = !!city;
 
   const fetchCities = async () => {
-    const res = await fetch('http://localhost:4000/api/cities');
-    return res.json();
+    const res = await getCities();
+    return res;
   };
 
   useEffect(() => {
