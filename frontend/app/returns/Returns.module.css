@@ -1,0 +1,206 @@
+.page {
+  padding: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  margin-bottom: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+  padding: 12px;
+
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.icon {
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.card h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.card h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+.card p {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* INFO */
+.infoBox {
+  margin-top: 14px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background: rgba(47, 90, 68, 0.08);
+  border: 1px solid var(--border);
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* CONTACT */
+.contact {
+  margin-top: 14px;
+
+  padding: 12px;
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.contact h2 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.contactBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.contactBtns a {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background: var(--primary);
+  color: white;
+
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 32px;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    max-width: 700px;
+    margin-bottom: 28px;
+  }
+
+  .grid {
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .icon {
+    font-size: 22px;
+  }
+
+  .infoBox {
+    margin-top: 24px;
+    padding: 18px;
+    font-size: 13px;
+  }
+
+  .contact {
+    margin-top: 24px;
+    padding: 18px;
+  }
+
+  .contactBtns a {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page {
+    max-width: 1100px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}

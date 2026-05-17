@@ -1,0 +1,173 @@
+.page {
+  padding: 24px 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  margin-bottom: 14px;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.card ul {
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.notice {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(47, 90, 68, 0.08);
+  border: 1px solid var(--primary);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.btn {
+  flex: 1;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+  background: var(--secondary);
+
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.footer {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 28px;
+  }
+
+  .title {
+    font-size: 34px;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 24px;
+    max-width: 700px;
+  }
+
+  .card {
+    padding: 18px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .card ul {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .notice {
+    padding: 16px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  .footer {
+    font-size: 13px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page {
+    max-width: 1000px;
+    padding: 60px 40px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card ul {
+    font-size: 15px;
+  }
+
+  .notice {
+    font-size: 15px;
+    padding: 18px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 16px;
+  }
+}

@@ -1,0 +1,196 @@
+/* ===== PAGE ===== */
+.page {
+  padding: 16px;
+  background: #f6f7fb;
+  min-height: 100vh;
+  color: #111;
+  font-family: system-ui;
+}
+
+/* ===== HEADER ===== */
+.header {
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.header p {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* ===== SEARCH ===== */
+.search {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 14px;
+  outline: none;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ===== CARD ===== */
+.card {
+  background: white;
+  border: 1px solid #e7e7ee;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== IMAGE ===== */
+.imageWrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 12px;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.desc {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.price {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* ===== FORM ===== */
+.form {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #111;
+  outline: none;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+}
+
+/* buttons */
+.editBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.saveBtn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.cancelBtn {
+  background: #e5e7eb;
+  color: #111;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* hover */
+.form button:hover {
+  opacity: 0.9;
+}
+
+.categoryBlock {
+  margin-bottom: 40px;
+}
+
+.categoryTitle {
+  font-size: 22px;
+  margin: 20px 0 10px;
+  text-transform: capitalize;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}

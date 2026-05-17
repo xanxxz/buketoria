@@ -1,0 +1,101 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  padding: 16px;
+}
+
+/* MOBILE FIRST */
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+/* inputs */
+.input {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  color: var(--foreground);
+  outline: none;
+  transition: 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+/* button */
+.button {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* error */
+.error {
+  color: #ef4444;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* TABLET / DESKTOP */
+/* ========================= */
+
+@media (min-width: 768px) {
+  .card {
+    padding: 28px;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    max-width: 440px;
+    padding: 32px;
+  }
+}
+
+/* nice touch on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .button:active {
+    transform: scale(0.98);
+  }
+}

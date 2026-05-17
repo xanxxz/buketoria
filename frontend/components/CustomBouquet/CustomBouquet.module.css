@@ -1,0 +1,228 @@
+.box {
+  margin: 0 0 20px;
+  padding: 20px 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--card);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+.box::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    var(--card) 45%,
+    rgba(255, 255, 255, 0.85) 65%,
+    transparent 100%
+  );
+
+  z-index: 1;
+}
+
+/* ЛЕВАЯ ЧАСТЬ */
+.content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 520px;
+}
+
+.box h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.box p {
+  font-size: 13px;
+  color: var(--foreground);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.box .link {
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  inline-size: 50%;
+}
+
+/* ПРИМЕЧАНИЕ */
+.note {
+  font-size: 11px;
+  color: var(--foreground);
+  opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  margin-inline-start: 3px;
+}
+
+/* КАРТИНКА */
+.image {
+  position: absolute;
+
+  top: 70%;
+  right: -80px;
+
+  transform: translateY(-50%) scale(1.4);
+
+  width: 420px;
+  height: 520px;
+
+  z-index: 1;
+  pointer-events: none;
+
+  opacity: 0.25;
+  filter: blur(1px);
+}
+
+.img {
+  object-fit: contain;
+}
+
+.box::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    var(--card) 40%,
+    transparent 100%
+  );
+
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 520px;
+    height: 620px;
+    right: -120px;
+    opacity: 0.3;
+  }
+}
+
+/* =========================
+   LAPTOP (1024px+)
+   ========================= */
+@media (min-width: 1024px) {
+  .box {
+    padding: 28px 28px;
+  }
+
+  .content {
+    max-width: 560px;
+    gap: 10px;
+  }
+
+  .box h3 {
+    font-size: 22px;
+  }
+
+  .box p {
+    font-size: 14px;
+  }
+
+  .box .link {
+    font-size: 15px;
+    padding: 12px 14px;
+    width: 45%;
+  }
+
+  .image {
+    width: 580px;
+    height: 680px;
+    right: -140px;
+    opacity: 0.28;
+  }
+}
+
+/* =========================
+   DESKTOP (1280px+)
+   ========================= */
+@media (min-width: 1280px) {
+  .box {
+    margin: 0 auto 24px;
+    padding: 36px 40px;
+  }
+
+  .content {
+    max-width: 600px;
+  }
+
+  .box h3 {
+    font-size: 28px;
+  }
+
+  .box p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .box .link {
+    font-size: 16px;
+    padding: 14px 16px;
+    width: 40%;
+  }
+
+  .note {
+    font-size: 12px;
+  }
+
+  .image {
+    width: 680px;
+    height: 780px;
+    right: -180px;
+    opacity: 0.3;
+    transform: translateY(-50%) scale(1.5);
+  }
+}
+
+/* =========================
+   LARGE DESKTOP (1440px+)
+   ========================= */
+@media (min-width: 1440px) {
+  .box {
+    padding: 48px 56px;
+  }
+
+  .box h3 {
+    font-size: 32px;
+  }
+
+  .box p {
+    font-size: 16px;
+  }
+
+  .box .link {
+    width: 35%;
+  }
+
+  .image {
+    width: 760px;
+    height: 860px;
+    right: -220px;
+    opacity: 0.32;
+  }
+}

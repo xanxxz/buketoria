@@ -1,0 +1,210 @@
+.footer {
+  background: var(--primary);
+  color: var(--secondary);
+
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 16px;
+  min-height: 200px;
+  max-height: 270px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  font-size: 25px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* social icons */
+.social {
+  display: flex;
+  gap: 12px;
+}
+
+.social a {
+  color: var(--secondary);
+  font-size: 18px;
+  opacity: 0.9;
+  transition: 0.2s;
+}
+
+.social a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.socialLink {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.tgIcon {
+  object-fit: cover;
+}
+
+/* ===== GRID ===== */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== LINKS ===== */
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li:last-child {
+  line-height: 20px;
+}
+
+.list li {
+  margin-bottom: 4px;
+}
+
+.link {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.link:hover {
+  color: white;
+}
+
+/* ===== BOTTOM ===== */
+
+.bottom {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* =========================
+   LAPTOP (1024px+)
+   ========================= */
+@media (min-width: 1024px) {
+  .container {
+    padding: 28px 20px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .social {
+    gap: 14px;
+  }
+
+  .socialLink {
+    width: 28px;
+    height: 28px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+
+  .bottom {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   DESKTOP (1280px+)
+   ========================= */
+@media (min-width: 1280px) {
+  .container {
+    padding: 40px 24px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .top {
+    margin-bottom: 36px;
+  }
+
+  .social {
+    gap: 16px;
+  }
+
+  .socialLink {
+    width: 32px;
+    height: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: start;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+
+  .bottom {
+    margin-top: 36px;
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   LARGE DESKTOP (1440px+)
+   ========================= */
+@media (min-width: 1440px) {
+  .container {
+    padding: 50px 32px;
+  }
+
+  .logo {
+    font-size: 34px;
+  }
+
+  .grid {
+    gap: 60px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}

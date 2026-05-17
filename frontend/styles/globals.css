@@ -1,0 +1,105 @@
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 11%);
+
+  --card: rgba(47, 90, 68, 0.08);
+  --card-foreground: hsl(0 0% 11%);
+
+  --muted: hsl(0 0% 96%);
+  --muted-foreground: hsl(0 0% 40%);
+
+  --border: hsl(0 0% 90%);
+
+  --primary: #2f5a44;
+  --primary-foreground: hsl(0 0% 100%);
+
+  --secondary: hsl(0 0% 97%);
+  --secondary-foreground: hsl(0 0% 11%);
+
+  --radius: 8px;
+}
+
+/* DARK MODE */
+html.dark {
+  --background: hsl(217.2 32.6% 17.5%);
+  --foreground: hsl(210 40% 98%);
+
+  --card: hsl(217.2 32.6% 17.5%);
+  --card-foreground: hsl(210 40% 98%);
+
+  --muted: hsl(215 27.9% 16.9%);
+  --muted-foreground: hsl(217.9 10.6% 64.9%);
+
+  --border: hsl(215 27.9% 16.9%);
+
+  --primary: hsl(187 100% 44%);
+  --primary-foreground: hsl(217.2 32.6% 17.5%);
+
+  --secondary: hsl(215 27.9% 16.9%);
+  --secondary-foreground: hsl(210 40% 98%);
+}
+
+/* BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.cityMain {
+  padding: 12px;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* IE / старый Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .active\:scale:active {
+    transform: scale(0.98);
+  }
+
+  .active\:opacity:active {
+    opacity: 0.6;
+  }
+
+  .active\:bg:active {
+    background: var(--muted);
+  }
+}
+
+button, a, label{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

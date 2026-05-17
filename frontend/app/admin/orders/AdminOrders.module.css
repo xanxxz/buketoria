@@ -1,0 +1,158 @@
+.page {
+  padding: 28px;
+  font-family: system-ui, sans-serif;
+  background: #f6f7fb;
+  min-height: 100vh;
+  color: #111;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.counter {
+  font-size: 13px;
+  background: #111;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0 24px;
+}
+
+.stat {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.stat svg {
+  opacity: 0.6;
+}
+
+/* LIST */
+.list {
+  display: grid;
+  gap: 16px;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid #eee;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+}
+
+/* NEW ORDER HIGHLIGHT */
+.new {
+  border: 2px solid #22c55e;
+  background: #f0fdf4;
+}
+
+/* TOP */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.product {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 14px;
+  color: #16a34a;
+  background: #ecfdf5;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* INFO */
+.info {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #555;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.date {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.status {
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #fef3c7;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+}

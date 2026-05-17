@@ -1,0 +1,274 @@
+/* CARD */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  height: 280px;
+  flex: 0 0 200px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.15),
+    transparent 40%,
+    rgba(255,255,255,0.08)
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .card:hover::after {
+    opacity: 1;
+  }
+}
+
+/* hover desktop */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* IMAGE */
+.imageWrapper {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* мягкое движение */
+.image {
+  object-fit: cover;
+  transform: scale(1.08);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* hover эффект (ощущение глубины) */
+@media (hover: hover) {
+  .card:hover .image {
+    transform: scale(1.15) translateY(-4px);
+    filter: brightness(1.05);
+  }
+}
+
+/* PRICE */
+.priceBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  padding: 5px 9px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: var(--foreground);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* INFO (GLASS LAYER) */
+.info {
+  position: relative;
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+  padding: 10px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔥 МЯГКИЙ ПЕРЕХОД ОТ КАРТИНКИ К СТЕКЛУ */
+.info::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  height: 30px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.55)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  pointer-events: none;
+}
+
+/* TITLE */
+.title {
+  font-size: 14px;
+  font-weight: 600;
+
+  margin: 0;
+  color: var(--foreground);
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ADD BUTTON */
+.addToCart {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: var(--primary);
+  color: var(--primary-foreground);
+
+  border: none;
+  border-radius: 10px;
+
+  height: 34px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.addToCart:active {
+  transform: scale(0.97);
+}
+
+/* FAVORITE */
+.favorite {
+  width: 42px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+/* активное */
+.favActive {
+  background: rgba(225, 29, 72, 0.1);
+  border-color: rgba(225, 29, 72, 0.3);
+  color: #e11d48;
+}
+
+/* анимация */
+.favorite:active {
+  transform: scale(0.9);
+}
+
+@media (min-width: 1024px) {
+  .card {
+    height: 340px;
+    flex: 0 0 240px;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .priceBadge {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .info {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .addToCart {
+    height: 40px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .favorite {
+    width: 46px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    height: 360px;
+    flex: 0 0 260px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .priceBadge {
+    font-size: 13px;
+  }
+
+  .addToCart {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card {
+    height: 380px;
+    flex: 0 0 280px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .priceBadge {
+    font-size: 14px;
+  }
+}

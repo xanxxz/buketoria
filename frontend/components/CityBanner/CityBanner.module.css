@@ -1,0 +1,128 @@
+.banner {
+  margin: 12px;
+  padding: 14px 18px;
+
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+
+  background: var(--card);
+  border: 1px solid rgba(47, 90, 68, 0.15);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.banner svg {
+  font-size: 25px;
+  color: var(--primary);
+}
+
+.banner p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 16px;
+}
+
+.banner span {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+/* =========================
+   TABLET (768px+)
+   ========================= */
+
+@media (min-width: 768px) {
+  .banner {
+    margin: 16px 24px;
+    padding: 16px 20px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+
+  .banner svg {
+    font-size: 28px;
+  }
+
+  .banner p {
+    font-size: 17px;
+  }
+
+  .banner span {
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   LAPTOP (1024px+)
+   ========================= */
+
+@media (min-width: 1024px) {
+  .banner {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 18px 24px;
+
+    gap: 16px;
+
+    border-radius: 18px;
+
+    /* чуть “дороже” выглядит */
+    background: linear-gradient(
+      135deg,
+      var(--card) 0%,
+      rgba(255, 255, 255, 0.9) 100%
+    );
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .banner svg {
+    font-size: 30px;
+  }
+
+  .banner p {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .banner span {
+    font-size: 15px;
+    max-width: 600px;
+  }
+
+  .text {
+    gap: 8px;
+  }
+}
+
+/* =========================
+   DESKTOP (1440px+)
+   ========================= */
+
+@media (min-width: 1440px) {
+  .banner {
+    max-width: 1200px;
+    padding: 20px 28px;
+    border-radius: 20px;
+  }
+
+  .banner p {
+    font-size: 19px;
+  }
+
+  .banner span {
+    font-size: 16px;
+  }
+
+  .banner svg {
+    font-size: 32px;
+  }
+}

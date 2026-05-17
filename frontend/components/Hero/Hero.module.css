@@ -1,0 +1,363 @@
+.hero {
+  position: relative;
+  min-height: 510px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  color: white;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.bg {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* затемнение как на макете */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+  backdrop-filter: blur(1px);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  padding: 24px;
+  padding-top: 20px;
+}
+
+/* TEXT */
+.title {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    var(--primary) 120%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 16px;
+
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 420px;
+}
+
+/* LOCATION */
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--secondary);
+  color: var( --card-foreground);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.location:hover {
+  filter: brightness(1.1);
+}
+
+.location:active {
+  transform: scale(0.98);
+}
+
+/* BUTTONS */
+.actions {
+  display: flex;
+  flex-direction: column; /* 🔥 mobile-first */
+  gap: 10px;
+}
+
+.primaryBtn {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-inline-size: 55%;
+  max-inline-size: 58%;
+
+  background: var(--primary);
+  color: var(--primary-foreground);
+
+  border: none;
+  border-radius: var(--radius);
+
+  padding: 14px 20px;
+  font-weight: 600; /* было 500 */
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* читаемость */
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+  filter: brightness(1.1);
+}
+
+.primaryBtn:active {
+  transform: scale(0.98);
+}
+
+.seoText {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.secondaryBtn {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-inline-size: 55%;
+  max-inline-size: 70%;
+
+  background: rgba(255, 255, 255, 0.12); /* 🔥 ключевой момент */
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  color: white;
+
+  padding: 14px 20px;
+  border-radius: var(--radius);
+
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.secondaryBtn:active {
+  transform: scale(0.98);
+}
+
+/* bottom block */
+.features {
+  position: relative;
+  margin: 20px 16px 16px;
+
+  color: var(--foreground);
+
+  border-radius: 16px;
+  padding: 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.85) 70%,
+    var(--primary) 120%
+  );
+  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.featureItem svg {
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.features div {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* =========================
+   TABLET (768px+)
+   ========================= */
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    border-radius: 16px;
+  }
+
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  .title {
+    font-size: 44px;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    max-width: 520px;
+  }
+
+  .location {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 14px 22px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 80vh;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+
+  .content {
+    padding: 60px 60px;
+  }
+
+  .title {
+    font-size: 60px;
+    line-height: 1.05;
+    max-width: 800px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    max-width: 600px;
+  }
+
+  .location {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+
+  .actions {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 16px 26px;
+    font-size: 16px;
+    border-radius: 14px;
+  }
+
+  /* 🔥 FEATURES превращаем в "карточки как в лендинге" */
+  .features {
+    position: absolute;
+    bottom: 30px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 1000px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 18px 24px;
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .featureItem {
+    flex-direction: row;
+    text-align: left;
+    gap: 12px;
+
+    font-size: 15px;
+  }
+
+  .featureItem svg {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    min-height: 85vh;
+  }
+
+  .content {
+    max-width: 1300px;
+    padding: 80px 80px;
+  }
+
+  .title {
+    font-size: 72px;
+    max-width: 900px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 18px 30px;
+    font-size: 17px;
+  }
+
+  .features {
+    max-width: 1100px;
+    bottom: 40px;
+  }
+}
