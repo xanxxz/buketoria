@@ -76,7 +76,12 @@ export const HeaderMain = () => {
   }, [cityLink]);
 
   useEffect(() => {
-    getCities().then(setCities);
+    getCities()
+      .then((data) => {
+        console.log('CITIES RESPONSE:', data);
+        setCities(data);
+      })
+      .catch((e) => console.log('CITIES ERROR:', e));
   }, []);
 
   const openCitySelect = () => {
