@@ -138,6 +138,9 @@ export const HeaderMain = () => {
                 {c.name}
               </button>
             ))}
+              <div style={{ position: 'fixed', bottom: 0, left: 0, background: 'white', zIndex: 99999, fontSize: 10 }}>
+                {JSON.stringify(cities)}
+              </div>
           </div>
         )}
       </div>
