@@ -44,6 +44,10 @@ html.dark {
   box-sizing: border-box;
 }
 
+html {
+    background-color: #2f5a44;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -64,6 +68,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .main {
   flex: 1;
+  background-color: #2f5a44;
 }
 
 .cityMain {

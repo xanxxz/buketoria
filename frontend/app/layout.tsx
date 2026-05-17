@@ -25,6 +25,8 @@ export const metadata: Metadata = {
 
   manifest: '/site.webmanifest',
 
+  themeColor: '#2f5a44',
+
   description:
     'Букетория — доставка свежих цветов и букетов по всей России от 30 минут. Розы, тюльпаны, пионы и авторские композиции с фото перед отправкой.',
 
