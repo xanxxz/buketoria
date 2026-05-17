@@ -9,11 +9,15 @@ export type City = {
 };
 
 export async function getCities(): Promise<City[]> {
-  const res = await fetch(`${API_URL}/cities`, {
-    next: { revalidate: 3600 },
-  });
+  if (typeof window !== 'undefined') {
+    const cached = localStorage.getItem('cities');
+    if (cached) return JSON.parse(cached);
+  }
 
-  if (!res.ok) throw new Error('Failed to fetch cities');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`);
+  const data = await res.json();
 
-  return res.json();
+  localStorage.setItem('cities', JSON.stringify(data));
+
+  return data;
 }

@@ -46,10 +46,10 @@ export const HeaderMain = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('pointerdown', handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('pointerdown', handleClickOutside);
     };
   }, []);
 
@@ -75,10 +75,12 @@ export const HeaderMain = () => {
     });
   }, [cityLink]);
 
-  const openCitySelect = async () => {
-    const list = await fetchCities();
-    setCities(list);
-    setOpen((prev) => !prev);
+  useEffect(() => {
+    getCities().then(setCities);
+  }, []);
+
+  const openCitySelect = () => {
+    setOpen(v => !v);
   };
 
   const router = useRouter();
