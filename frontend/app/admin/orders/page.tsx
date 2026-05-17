@@ -18,7 +18,7 @@ import {
 
 import { deliveryTimeMap } from '@/lib/deliveryTime';
 
-export const cityMap: Record<string, string> = {
+const cityMap: Record<string, string> = {
   moscow: 'Москва',
   saratov: 'Саратов',
 };
