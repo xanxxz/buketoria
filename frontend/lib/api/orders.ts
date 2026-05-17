@@ -1,6 +1,6 @@
 import { CreateOrderDTO } from '@/types/order';
 
-const API_URL = '/api';
+const API_URL = 'http://localhost:3000/api';
 
 const BASE_URL = `${API_URL}/orders`;
 
