@@ -1,3 +1,5 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL;;
+
 type GetProductsParams = {
   city?: string;
   category?: string;
@@ -14,7 +16,7 @@ export async function getProducts(params?: GetProductsParams) {
   if (params?.city) query.append('city', params.city);
   if (params?.category) query.append('category', params.category);
 
-  const url = `/api/products${
+  const url = `${API_URL}/products${
     query.toString() ? `?${query.toString()}` : ''
   }`;
 
@@ -34,7 +36,7 @@ export async function updateProduct(id: string, data: any) {
 
   const token = getToken();
 
-  const res = await fetch(`/api/products/${id}`, {
+  const res = await fetch(`${API_URL}/products/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ export async function updateProduct(id: string, data: any) {
 export async function deleteProduct(id: string) {
   const token = getToken();
 
-  const res = await fetch(`/api/products/${id}`, {
+  const res = await fetch(`${API_URL}/products/${id}`, {
     method: 'DELETE',
     headers: {
       ...(token ? { Authorization: `Bearer ${token}` } : {}),

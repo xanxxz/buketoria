@@ -1,3 +1,4 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL;;
 
 export type City = {
   id: string;
@@ -8,7 +9,7 @@ export type City = {
 };
 
 export async function getCities(): Promise<City[]> {
-  const res = await fetch(`/api/cities`, {
+  const res = await fetch(`${API_URL}/cities`, {
     next: { revalidate: 3600 },
   });
 

@@ -1,4 +1,4 @@
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;;
 
 export type Category = {
   id: string;
@@ -7,7 +7,7 @@ export type Category = {
 };
 
 export async function getCategories() {
-  const res = await fetch(`/api/categories`, {
+  const res = await fetch(`${API_URL}/categories`, {
     next: { revalidate: 3600 }, // 🔥 категории меняются редко → кеш на час
   });
 
