@@ -12,8 +12,6 @@ async function bootstrap() {
     }),
   );
   app.enableCors({ origin: true });
-  
-  app.setGlobalPrefix('api');
 
   await app.listen(4000);
   console.log('Backend running on http://localhost:4000');
