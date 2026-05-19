@@ -21,7 +21,8 @@ export default function CatalogClient({ products, categories }: Props) {
   const [sort, setSort] = useState<'cheap' | 'expensive'>('cheap');
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
+  const [optimisticCategory, setOptimisticCategory] = useState<string | null>(null);
 
   const chipsRef = useRef<Record<string, HTMLButtonElement | null>>({});
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -61,10 +62,15 @@ export default function CatalogClient({ products, categories }: Props) {
 
     const base = city ? `/${city}/catalog` : `/catalog`;
 
-    startTransition(() => {
-      router.push(slug ? `${base}/${slug}` : base, {
-        scroll: false,
-      });
+    setIsPending(true);
+
+    router.push(slug ? `${base}/${slug}` : base, {
+      scroll: false,
+    });
+
+    // сразу снимаем pending (визуально мгновенно)
+    requestAnimationFrame(() => {
+      setIsPending(false);
     });
   };
 
@@ -96,7 +102,10 @@ export default function CatalogClient({ products, categories }: Props) {
         <div className={styles.categories} ref={containerRef}>
           <button
             className={`${styles.chip} ${!activeCategory ? styles.chipActive : ''}`}
-            onClick={() => handleCategory(null)}
+            onClick={() => {
+              setOptimisticCategory(null);
+              handleCategory(null);
+            }}
           >
             Все
           </button>
@@ -108,9 +117,12 @@ export default function CatalogClient({ products, categories }: Props) {
                 chipsRef.current[cat.slug] = el;
               }}
               className={`${styles.chip} ${
-                activeCategory === cat.slug ? styles.chipActive : ''
+                (optimisticCategory ?? activeCategory) === cat.slug ? styles.chipActive : ''
               }`}
-              onClick={() => handleCategory(cat.slug)}
+              onClick={() => {
+                setOptimisticCategory(cat.slug);
+                handleCategory(cat.slug);
+              }}
             >
               {cat.name}
             </button>

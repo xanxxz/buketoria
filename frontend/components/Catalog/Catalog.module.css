@@ -180,6 +180,8 @@
 
   user-select: none;
   scroll-snap-align: center;
+  touch-action: manipulation;
+
 }
 
 .chipActive {
