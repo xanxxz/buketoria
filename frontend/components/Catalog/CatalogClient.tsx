@@ -10,6 +10,7 @@ import { EmptyState } from '../EmtyState/EmptyState';
 import { FiArrowDown, FiArrowUp } from 'react-icons/fi';
 import { usePathname, useRouter } from 'next/navigation';
 import { Category } from '@/types/category';
+import { useTransition } from 'react';
 
 type Props = {
   products: Product[];
@@ -20,6 +21,7 @@ export default function CatalogClient({ products, categories }: Props) {
   const [sort, setSort] = useState<'cheap' | 'expensive'>('cheap');
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const chipsRef = useRef<Record<string, HTMLButtonElement | null>>({});
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +61,11 @@ export default function CatalogClient({ products, categories }: Props) {
 
     const base = city ? `/${city}/catalog` : `/catalog`;
 
-    router.push(slug ? `${base}/${slug}` : base, { scroll: false });
+    startTransition(() => {
+      router.push(slug ? `${base}/${slug}` : base, {
+        scroll: false,
+      });
+    });
   };
 
   useEffect(() => { if (!activeCategory) return; const container = containerRef.current; const el = chipsRef.current[activeCategory]; if (!container || !el) return; const containerRect = container.getBoundingClientRect(); const elRect = el.getBoundingClientRect(); const scrollLeft = container.scrollLeft + (elRect.left - containerRect.left) - container.clientWidth / 2 + el.clientWidth / 2; requestAnimationFrame(() => { container.scrollTo({ left: scrollLeft, behavior: 'smooth', }); }); }, [activeCategory, categories]);
@@ -114,7 +120,11 @@ export default function CatalogClient({ products, categories }: Props) {
 
       {/* GRID */}
       <div className={styles.grid}>
-        {sorted.length ? (
+        {isPending ? (
+          Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className={styles.skeletonCard} />
+          ))
+        ) : sorted.length ? (
           sorted.map((flower) => (
             <FlowerCard
               key={flower.id}

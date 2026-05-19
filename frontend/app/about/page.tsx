@@ -117,7 +117,7 @@ export default function AboutPage() {
 
         {/* CTA */}
         <section className={styles.cta}>
-          <h2>Готовы заказать букет?</h2>
+          <h2 className={styles.ctaTitle}>Готовы заказать букет?</h2>
 
           <a href="/catalog" className={styles.button}>
             Перейти в каталог →

@@ -56,13 +56,14 @@ export const Footer = () => {
                 alt="Telegram"
                 priority
                 quality={100}
+                sizes='80px'
                 fill
                 className={styles.tgIcon}
               />
             </a>
             <a
               className={styles.socialLink}
-              href="https://vk.com/your_page"
+              href="https://vk.ru/club238559699"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Vkontakte"
@@ -72,6 +73,7 @@ export const Footer = () => {
                 alt="Vkontakte"
                 priority
                 quality={100}
+                sizes='80px'
                 fill
                 className={styles.tgIcon}
               />
@@ -86,6 +88,7 @@ export const Footer = () => {
                 alt="Phone"
                 priority
                 quality={100}
+                sizes='80px'
                 fill
                 className={styles.tgIcon}
               />

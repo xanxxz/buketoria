@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://букетория.рф'),
+  metadataBase: new URL('https://e-buketoria.ru/'),
 
   title: {
     default: 'Букетория — доставка цветов по всей России',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://букетория.рф',
+    url: 'https://e-buketoria.ru/',
     siteName: 'Букетория',
 
     title: 'Букетория — доставка цветов по России от 30 минут',
@@ -129,9 +129,9 @@ export default function RootLayout({
 
               name: 'Букетория',
 
-              url: 'https://your-domain.ru',
+              url: 'https://e-buketoria.ru/',
 
-              logo: 'https://your-domain.ru/logo.png',
+              logo: 'https://e-buketoria.ru/logo.png',
 
               areaServed: 'Россия',
 

@@ -77,7 +77,7 @@ export default async function CityPage({
 
             areaServed: city.name,
 
-            url: `https://букетория.рф/${city.slug}`,
+            url: `https://e-buketoria.ru/${city.slug}`,
 
             description:
               `Доставка цветов и букетов в ${city.name} от 30 минут`,

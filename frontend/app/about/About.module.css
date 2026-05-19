@@ -109,11 +109,6 @@
   border: 1px solid var(--border);
 }
 
-.cta h2 {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
 .button {
   display: inline-block;
 
@@ -123,6 +118,7 @@
   background: var(--primary);
   color: white;
 
+  margin-top: 10px;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
