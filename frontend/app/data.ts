@@ -108,4 +108,4 @@
     'contacts',
   ];
 
-  export const baseUrl = 'https://букетория.рф';
+  export const baseUrl = 'https://e-buketoria.ru';
