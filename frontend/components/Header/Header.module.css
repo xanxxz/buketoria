@@ -234,7 +234,7 @@
   background: rgba(0, 0, 0, 0.35);
 
   display: flex;
-  z-index: 100;
+  z-index: 1001;
 
   backdrop-filter: blur(2px);
 
