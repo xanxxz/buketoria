@@ -21,7 +21,7 @@ export default function CatalogClient({ products, categories }: Props) {
   const [sort, setSort] = useState<'cheap' | 'expensive'>('cheap');
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const [optimisticCategory, setOptimisticCategory] = useState<string | null>(null);
 
   const chipsRef = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -62,15 +62,10 @@ export default function CatalogClient({ products, categories }: Props) {
 
     const base = city ? `/${city}/catalog` : `/catalog`;
 
-    setIsPending(true);
-
-    router.push(slug ? `${base}/${slug}` : base, {
-      scroll: false,
-    });
-
-    // сразу снимаем pending (визуально мгновенно)
-    requestAnimationFrame(() => {
-      setIsPending(false);
+    startTransition(() => {
+      router.push(slug ? `${base}/${slug}` : base, {
+        scroll: false,
+      });
     });
   };
 
