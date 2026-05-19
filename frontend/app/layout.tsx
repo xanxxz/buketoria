@@ -97,7 +97,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: '/',
+    canonical: 'https://e-buketoria.ru/',
   },
 
   category: 'flowers',
@@ -105,8 +105,8 @@ export const metadata: Metadata = {
   // 🔥 усиление доверия (E-E-A-T)
   verification: {
     // сюда потом можно добавить:
-    // google: 'xxxx',
-    // yandex: 'xxxx'
+    google: "MyqtdculAr2zIrOlQSl3-oFIQMW_shMdJ4wrStcV_3I",
+    yandex: '98f75ecdfb68451b',
   },
 };
 
@@ -143,6 +143,7 @@ export default function RootLayout({
               ],
             }),
           }}
+          
         />
       </head>
 
