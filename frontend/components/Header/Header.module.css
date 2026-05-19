@@ -170,6 +170,7 @@
 
   z-index: 100;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
 }
 
 .cityItem {
@@ -211,6 +212,7 @@
   border-radius: var(--radius);
   border: 1px solid var(--border);
   outline: none;
+  font-size: 16px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -420,6 +422,9 @@
   flex-direction: column;
 
   animation: dropdownIn 0.18s ease;
+  font-size: 16px;
+    -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 /* плавное появление */
@@ -444,10 +449,17 @@
   align-items: center;
 
   padding: 12px 14px;
+  font-size: 16px;
 
   cursor: pointer;
 
   transition: background 0.15s ease, transform 0.15s ease;
+   touch-action: manipulation;
+}
+
+.searchWrapper {
+  position: relative;
+  z-index: 999;
 }
 
 /* hover только на десктопе */

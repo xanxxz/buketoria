@@ -85,7 +85,7 @@ export const HeaderMain = ({ cities }: { cities: City[] }) => {
             alt="Букетория"
             priority
             quality={100}
-            sizes='100px'
+            sizes='100%'
             fill
             className={styles.logoImg}
           />

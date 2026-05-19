@@ -24,7 +24,7 @@ export const FlowerCard = ({
           alt={flower.name}
           fill
           loading="lazy"
-          sizes='100px'
+          sizes='100%'
           className={styles.image}
         />
 

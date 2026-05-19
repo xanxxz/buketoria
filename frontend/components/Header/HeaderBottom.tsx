@@ -70,10 +70,10 @@ export const HeaderBottom = ({ categories }: Props) => {
           <input
             className={styles.search}
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value) }
             placeholder="Поиск букетов..."
             onFocus={() => setSearchOpen(true)}
-            onBlur={() => setTimeout(() => setSearchOpen(false), 10)}
+            onBlur={() => setTimeout(() => setSearchOpen(false), 150)}
           />
 
           {searchOpen && searchResults.length > 0 && (
